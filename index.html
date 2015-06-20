@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS-Play</title>
+        <link rel="stylesheet" href="css/sanitize.css">
+        <link rel="stylesheet" href="js/codemirror/lib/codemirror.css">
+        <link rel="stylesheet" href="js/codemirror/theme/monokai.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header id="header">
+            <div class="inner">
+                <div class="left">
+                    <h1>JS-Play</h1>
+                    <p class="chatch-copy">Let's try PROGRAMMING on JavaScript !</p>
+                </div>
+                <div class="right">
+                    <p class="version">version 0.2.0</p>
+                </div>
+            </div>
+        </header>
+        <main class="inner">
+            <div class="left">
+                <section id="edit-area">
+                    <div class="heading-wrapper">
+                        <h2>JavaScript Editor</h2>
+                        <div id="editor-font-size" data-font-size="10">
+                            <div class="font-size"><span class="fa fa-font"></span><span class="size">10</span>px</div>
+                            <div class="button-area">
+                                <button name="font-size-up-button" class="btn-circle fa fa-plus" onClick="editorFontSizeUp()"></button>
+                                <button name="font-size-down-button" class="btn-circle fa fa-minus" onClick="editorFontSizeDown()"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea id="editor-js" spellcheck="false">println('Hello World!');</textarea>
+                    <div class="button-area align-right">
+                        <button class="btn-blue" onclick="executeScript()">実行</button>
+                    </div>
+                    <div class="information">
+                        <p>使用可能な独自関数（通常のJavaScriptでは使用できないので注意）</p>
+                        <ul>
+                            <li>print(object)： objectを表示する（改行なし）</li>
+                            <li>println(object)： objectを表示する（改行あり）</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="right">
+                <section id="arguments-area" data-last-arg-index="0">
+                    <h2>標準入力引数</h2>
+                    <div class="args">
+                        <label for="arg-0">arg[0]</label><input class="arg" type="text" id="arg-0"><br>
+                    </div>
+                    <div class="button-area align-right">
+                        <button class="btn-blue" onclick="addArgInput()">引数追加</button>
+                        <button class="btn-blue" onclick="clearArgs()">引数削除</button>
+                    </div>
+                </section>
+                <section id="output-area">
+                    <h2>出力</h2>
+                    <div id="output-box">&gt;&nbsp;</div>
+                    <div class="button-area align-right">
+                        <button class="btn-blue" onclick="clearOutputBox()">出力削除</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/codemirror/lib/codemirror.js"></script>
+        <script src="js/codemirror/mode/javascript/javascript.js"></script>
+        <script src="js/codemirror/addon/edit/closebrackets.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
