@@ -56,22 +56,26 @@ function executeScript() {
 }
 
 function print(obj) {
-    $('#output-box').append(obj);
-    return false;
+    if (arguments.length !== 0) {
+        var str = new String(obj);
+        $('#output-box').append(escapeHtml(str));
+    }
 }
 
 function println(obj) {
     if (arguments.length === 0) {
         $('#output-box').append('<br>&gt;&nbsp;');
     } else {
-        $('#output-box').append(obj + '<br>&gt;&nbsp;');
+        var str = new String(obj);
+        $('#output-box').append(escapeHtml(str) + '<br>&gt;&nbsp;');
     }
-    return false;
 }
 
 function printErr(obj) {
-    $('#output-box').append('<span class="err-text">' + obj + '</span><br>&gt;&nbsp;');
-    return false;
+    if (argument.length !== 0) {
+        var str = new String(obj);
+        $('#output-box').append('<span class="err-text">' + escapeHtml(str) + '</span><br>&gt;&nbsp;');
+    }
 }
 
 function clearOutputBox() {
@@ -107,4 +111,8 @@ function setEditorFontSize(sizePx) {
         $('#editor-font-size').data('font-size', sizePx);
         $('#editor-font-size .size').text(sizePx);
     }
+}
+
+function escapeHtml(str) {
+    return $('<dummy>').text(str).html();
 }
