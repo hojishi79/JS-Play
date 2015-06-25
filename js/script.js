@@ -63,7 +63,11 @@ window.onload = function () {
     };
 
     println = function (obj) {
-        $('#output-box').append(obj + '<br>&gt;&nbsp;');
+        if (arguments.length === 0) {
+            $('#output-box').append('<br>&gt;&nbsp;');
+        } else {
+            $('#output-box').append(obj + '<br>&gt;&nbsp;');
+        }
         return false;
     };
 
