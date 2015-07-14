@@ -72,7 +72,7 @@ function println(obj) {
 }
 
 function printErr(obj) {
-    if (argument.length !== 0) {
+    if (arguments.length !== 0) {
         var str = new String(obj);
         $('#output-box').append('<span class="err-text">' + escapeHtml(str) + '</span><br>&gt;&nbsp;');
     }
